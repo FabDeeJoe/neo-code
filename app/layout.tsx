@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Navbar from './components/Navbar';
+import { Footer } from './components/Footer';
+import { CookieConsent } from './components/CookieConsent';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "NeoCode - Transformation digitale par l'IA",
-  description: "Accélérez votre compétitivité avec des solutions modernes et intelligentes. Modernisation d'applications métier et transformation de fichiers Excel en applications performantes.",
-  keywords: "IA, transformation digitale, modernisation, Excel, VBA, logiciels métier, DSI, dirigeants",
+  title: 'NeoCode - Modernisation des Outils Métiers',
+  description: 'Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle.',
 };
 
 export default function RootLayout({
@@ -19,8 +20,14 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
+        <CookieConsent />
       </body>
     </html>
   );

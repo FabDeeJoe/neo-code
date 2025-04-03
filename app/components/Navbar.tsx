@@ -8,9 +8,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const navItems = [
-    { name: 'Accueil', href: '/' },
-    { name: 'Processus', href: '/processus' },
+  const navigation = [
+    { name: 'Notre Approche', href: '/notre-approche' },
+    { name: 'Nos Solutions', href: '/nos-solutions' },
+    { name: 'Comment on Travaille', href: '/comment-on-travaille' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -25,7 +26,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              {navItems.map((item) => (
+              {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -96,7 +97,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="sm:hidden">
           <div className="pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

@@ -43,6 +43,8 @@ neo-code-website/
 │   ├── lib/
 │   ├── processus/
 │   ├── contact/
+│   ├── comment-on-travaille/
+│   ├── notre-approche/
 │   └── page.tsx
 ├── public/
 └── ...
