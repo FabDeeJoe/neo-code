@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Circle, ChevronRight } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 
@@ -145,15 +145,16 @@ interface DynamicHeroSectionProps {
 }
 
 export function DynamicHeroSection({
-  badge = "Introducing Our Platform",
-  title1 = "Elevate Your",
-  title2 = "Digital Vision",
-  description = "Crafting exceptional digital experiences through innovative design and cutting-edge technology.",
+  badge = "New Feature",
+  title1 = "Build",
+  title2 = "Something Great",
+  description = "Description goes here",
   ctaText = "Get Started",
   ctaHref = "#",
   secondaryCtaText = "Learn More",
   secondaryCtaHref = "#",
 }: DynamicHeroSectionProps) {
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -171,19 +172,34 @@ export function DynamicHeroSection({
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
+    // Mettre à jour les dimensions de la fenêtre
+    const updateWindowSize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+    
+    // Initialiser les dimensions
+    updateWindowSize();
+
+    // Gérer le mouvement de la souris
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
 
+    window.addEventListener("resize", updateWindowSize);
     window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
+      window.removeEventListener("resize", updateWindowSize);
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [mouseX, mouseY]);
 
-  const rotateX = useTransform(mouseY, [0, window.innerHeight], [5, -5]);
-  const rotateY = useTransform(mouseX, [0, window.innerWidth], [-5, 5]);
+  const rotateX = useTransform(mouseY, [0, windowSize.height], [5, -5]);
+  const rotateY = useTransform(mouseX, [0, windowSize.width], [-5, 5]);
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
