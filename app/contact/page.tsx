@@ -14,10 +14,60 @@ export default function ContactPage() {
     type: 'dirigeant', // dirigeant ou dsi
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: null as string | null,
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implémenter la logique d'envoi du formulaire
-    console.log('Formulaire soumis:', formData);
+    setStatus({ loading: true, success: false, error: null });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.nom,
+          email: formData.email,
+          message: `
+            Nom: ${formData.nom}
+            Entreprise: ${formData.entreprise}
+            Email: ${formData.email}
+            Téléphone: ${formData.telephone}
+            Type: ${formData.type}
+            
+            Message:
+            ${formData.message}
+          `,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({ loading: false, success: true, error: null });
+        setFormData({
+          nom: '',
+          entreprise: '',
+          email: '',
+          telephone: '',
+          message: '',
+          type: 'dirigeant',
+        });
+      } else {
+        throw new Error(data.error || 'Une erreur est survenue');
+      }
+    } catch (error) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: error instanceof Error ? error.message : 'Une erreur est survenue',
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -38,6 +88,18 @@ export default function ContactPage() {
       {/* Contact Form */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
+          {status.success && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-600 rounded-lg">
+              Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+            </div>
+          )}
+
+          {status.error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-lg">
+              {status.error}
+            </div>
+          )}
+
           <div className="bg-white rounded-lg shadow-sm p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -115,6 +177,7 @@ export default function ContactPage() {
                 >
                   <option value="dirigeant">Dirigeant</option>
                   <option value="dsi">DSI</option>
+                  <option value="autre">Autre</option>
                 </select>
               </div>
 
@@ -140,9 +203,14 @@ export default function ContactPage() {
                 </p>
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  disabled={status.loading}
+                  className={`bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors ${
+                    status.loading
+                      ? 'opacity-75 cursor-not-allowed'
+                      : 'hover:bg-blue-700'
+                  }`}
                 >
-                  Envoyer
+                  {status.loading ? 'Envoi en cours...' : 'Envoyer'}
                 </button>
               </div>
             </form>
