@@ -54,12 +54,15 @@ function Feature({
               ))}
             </div>
           </div>
-          <div className="bg-muted rounded-md aspect-square relative overflow-hidden">
+          <div className="bg-muted rounded-xl aspect-[4/3] relative overflow-hidden shadow-lg">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#7F6EFA]/10 to-transparent" />
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </div>
         </div>

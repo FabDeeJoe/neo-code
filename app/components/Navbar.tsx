@@ -9,9 +9,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navigation = [
-    { name: 'Notre Approche', href: '/notre-approche' },
+    { name: 'Notre approche', href: '/notre-approche' },
+    { name: 'Notre méthode', href: '/notre-methode' },
     { name: 'Nos Solutions', href: '/nos-solutions' },
-    { name: 'Comment on Travaille', href: '/comment-on-travaille' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -32,8 +32,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                     pathname === item.href
-                      ? 'border-blue-500 text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'border-[#7F6EFA] text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-[#7F6EFA] hover:text-gray-700'
                   }`}
                 >
                   {item.name}
@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <Link
               href="/contact"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#7F6EFA] hover:bg-[#6A5CD6]"
             >
               Contactez-nous
             </Link>
@@ -103,8 +103,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
                   pathname === item.href
-                    ? 'bg-blue-50 border-blue-500 text-blue-700'
-                    : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'
+                    ? 'bg-[#7F6EFA]/10 border-[#7F6EFA] text-[#7F6EFA]'
+                    : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-[#7F6EFA] hover:text-gray-700'
                 }`}
               >
                 {item.name}
@@ -114,7 +114,7 @@ export default function Navbar() {
               <div className="px-4">
                 <Link
                   href="/contact"
-                  className="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                  className="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#7F6EFA] hover:bg-[#6A5CD6]"
                 >
                   Contactez-nous
                 </Link>

@@ -32,8 +32,14 @@ export function Footer() {
               <Link href="/" className="block text-gray-600 hover:text-blue-600">
                 Accueil
               </Link>
-              <Link href="/comment-on-travaille" className="block text-gray-600 hover:text-blue-600">
-                Comment on Travaille
+              <Link href="/notre-approche" className="block text-gray-600 hover:text-blue-600">
+                Notre approche
+              </Link>
+              <Link href="/notre-methode" className="block text-gray-600 hover:text-blue-600">
+                Notre méthode
+              </Link>
+              <Link href="/nos-solutions" className="block text-gray-600 hover:text-blue-600">
+                Nos Solutions
               </Link>
               <Link href="/contact" className="block text-gray-600 hover:text-blue-600">
                 Contact

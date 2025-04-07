@@ -8,8 +8,8 @@ import { CookieConsent } from './components/CookieConsent';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'NeoCode - Modernisation des Outils Métiers',
-  description: 'Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle.',
+  title: 'NeoCode - Modernisation d\'Applications & Transformation Digitale',
+  description: 'Transformez vos outils métiers obsolètes en applications modernes et intuitives grâce à notre expertise en Intelligence Artificielle. Découvrez comment l\'IA peut accélérer votre transformation digitale.',
 };
 
 export default function RootLayout({

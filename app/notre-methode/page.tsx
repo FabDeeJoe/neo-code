@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Timeline } from "../components/ui/timeline";
 import { CheckCircle, Search, RefreshCw, TrendingUp, Brain, Users } from "lucide-react";
+import { PageHeader } from '../components/ui/page-header';
 
 export default function ProcessPage() {
   const data = [
@@ -233,8 +234,15 @@ export default function ProcessPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-white">
-      <Timeline data={data} />
+    <div className="min-h-screen">
+      <PageHeader
+        title="Notre Méthode (et pourquoi ça marche!)"
+        description="Une méthode éprouvée pour transformer vos outils métiers en solutions modernes et performantes."
+      />
+      
+      <div className="min-h-screen w-full bg-white">
+        <Timeline data={data} />
+      </div>
     </div>
   );
 } 

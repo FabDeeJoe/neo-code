@@ -133,15 +133,15 @@ function FloatingParticles() {
   );
 }
 
-interface HeroProps {
-  badge?: string;
-  title1?: string;
-  title2?: string;
-  description?: string;
-  ctaText?: string;
-  ctaHref?: string;
-  secondaryCtaText?: string;
-  secondaryCtaHref?: string;
+interface DynamicHeroSectionProps {
+  badge: React.ReactNode;
+  title1: string;
+  title2: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+  secondaryCtaText: string;
+  secondaryCtaHref: string;
 }
 
 export function DynamicHeroSection({
@@ -153,7 +153,7 @@ export function DynamicHeroSection({
   ctaHref = "#",
   secondaryCtaText = "Learn More",
   secondaryCtaHref = "#",
-}: HeroProps) {
+}: DynamicHeroSectionProps) {
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({

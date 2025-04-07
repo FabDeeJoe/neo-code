@@ -19,14 +19,14 @@ export default function Home() {
       <section className="relative bg-gradient-to-b from-blue-50 to-white">
         <motion.div {...fadeInUp}>
           <DynamicHeroSection
-            badge="Prototypes livrés en 1 semaine grâce l'IA"
+            badge={<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">Prototypes livrés en 1 semaine grâce à l'IA</span>}
             title1="Modernisez"
             title2="Vos Outils en 7 Jours"
-            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle."
+            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold'>intelligence artificielle</span>."
             ctaText="Démarrer votre projet"
             ctaHref="/contact"
-            secondaryCtaText="Découvrir comment on travaille"
-            secondaryCtaHref="/comment-on-travaille"
+            secondaryCtaText="Découvrir notre méthode"
+            secondaryCtaHref="/notre-methode"
           />
         </motion.div>
       </section>
@@ -58,8 +58,8 @@ export default function Home() {
                 description: "Travaillez ensemble sans conflits de versions"
               }
             ]}
-            imageSrc="https://images.unsplash.com/photo-1543286386-713bdd548da4"
-            imageAlt="Excel to Web App Transformation"
+            imageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+            imageAlt="Transformation d'un fichier Excel en application web moderne de gestion d'inventaire"
           />
         </motion.div>
       </section>
@@ -109,7 +109,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">Notre Approche Unique</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Une méthodologie qui combine expertise humaine et intelligence artificielle pour des résultats exceptionnels.
+              Une méthodologie qui combine expertise humaine et <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">intelligence artificielle</span> pour des résultats exceptionnels.
             </p>
           </div>
           
@@ -127,7 +127,7 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">L'Humain au Centre</h3>
               </div>
               <p className="text-gray-600">
-                Vos besoins et votre expertise métier guident chaque décision. L'IA est un outil, vous gardez le contrôle.
+                Vos besoins et votre expertise métier guident chaque décision. L'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span> est un outil, vous gardez le contrôle.
               </p>
             </motion.div>
 
@@ -144,7 +144,7 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">Itération Rapide</h3>
               </div>
               <p className="text-gray-600">
-                Prototype en 1 semaine grâce à l'IA, puis affinage continu avec votre retour d'expérience.
+                Prototype en 1 semaine grâce à l'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span>, puis affinage continu avec votre retour d'expérience.
               </p>
             </motion.div>
 
@@ -158,10 +158,10 @@ export default function Home() {
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <Brain className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">IA Supervisée</h3>
+                <h3 className="text-xl font-semibold mb-2"><span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IA</span> Supervisée</h3>
               </div>
               <p className="text-gray-600">
-                L'IA accélère le développement, l'expertise humaine garantit la qualité et la pertinence.
+                L'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IA</span> accélère le développement, l'expertise humaine garantit la qualité et la pertinence.
               </p>
             </motion.div>
 
@@ -178,7 +178,7 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">Amélioration Continue</h3>
               </div>
               <p className="text-gray-600">
-                Vos outils évoluent en permanence grâce aux retours utilisateurs et aux avancées de l'IA.
+                Vos outils évoluent en permanence grâce aux retours utilisateurs et aux avancées de l'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span>.
               </p>
             </motion.div>
           </div>
@@ -196,7 +196,7 @@ export default function Home() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Comment on Travaille
+              Notre méthode
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Une approche en 5 étapes pour moderniser vos outils métiers.
@@ -307,7 +307,7 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <Link 
-                href="/comment-on-travaille"
+                href="/notre-methode"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
               >
                 En savoir plus sur notre méthode
@@ -318,8 +318,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* CTA Section - Fond dégradé bleu plus prononcé */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800">
+      {/* CTA Section - Fond dégradé violet */}
+      <section className="relative bg-gradient-to-r from-[#7F6EFA] to-[#6A5CD6]">
         <motion.div 
           initial="initial"
           whileInView="animate"
@@ -331,14 +331,14 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Prêt à Moderniser vos Outils ?
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-8">
+            <p className="text-lg md:text-xl text-white/90 mb-8">
               Discutons de votre projet et découvrez comment notre approche unique peut transformer votre entreprise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
                 <Link 
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-lg font-medium rounded-lg text-white hover:bg-white hover:text-blue-600 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-lg font-medium rounded-lg text-white hover:bg-white hover:text-[#7F6EFA] transition-colors duration-200"
                 >
                   Contactez-nous
                 </Link>
@@ -346,13 +346,13 @@ export default function Home() {
               <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
                 <Link 
                   href="/notre-approche"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-transparent bg-white text-lg font-medium rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-transparent bg-white text-lg font-medium rounded-lg text-[#7F6EFA] hover:bg-opacity-90 transition-colors duration-200"
                 >
                   En savoir plus
                 </Link>
               </motion.div>
             </div>
-    </div>
+          </div>
         </motion.div>
       </section>
     </main>

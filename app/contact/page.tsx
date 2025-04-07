@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { PageHeader } from '../components/ui/page-header';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -29,19 +30,10 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Discutons de votre projet
-            </h1>
-            <p className="text-xl text-gray-600">
-              Nous sommes là pour vous accompagner dans votre transformation digitale
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Discutons de votre projet"
+        description="Nous sommes là pour vous accompagner dans votre transformation digitale"
+      />
 
       {/* Contact Form */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -162,18 +154,18 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+33123456789"
+                href="tel:+33622501172"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
               >
                 <span className="text-xl">📞</span>
-                +33 1 23 45 67 89
+                06 22 50 11 72
               </a>
               <a
-                href="mailto:contact@neo-code.com"
+                href="mailto:welcome@neo-code.com"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
               >
                 <span className="text-xl">✉️</span>
-                contact@neo-code.com
+                welcome@neo-code.com
               </a>
             </div>
           </div>

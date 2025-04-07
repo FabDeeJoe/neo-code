@@ -4,23 +4,15 @@ import { Feature } from '../components/ui/feature';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PageHeader } from '../components/ui/page-header';
 
 export default function SolutionsPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Nos Solutions
-            </h1>
-            <p className="text-xl text-gray-600">
-              Des solutions sur mesure pour moderniser vos outils métiers et accélérer votre transformation digitale.
-            </p>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        title="Nos Solutions"
+        description="Des solutions sur mesure pour moderniser vos outils métiers et accélérer votre transformation digitale."
+      />
 
       {/* Excel/VBA Section */}
       <section className="py-20">
@@ -188,7 +180,7 @@ export default function SolutionsPage() {
                 Démarrer votre projet
               </Link>
               <Link 
-                href="/comment-on-travaille"
+                href="/notre-methode"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
               >
                 Découvrir notre méthode
