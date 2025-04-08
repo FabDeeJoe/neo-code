@@ -22,7 +22,7 @@ export default function Home() {
             badge={<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">Prototypes livrés en 1 semaine grâce à l'IA</span>}
             title1="Modernisez"
             title2="Vos Outils en 7 Jours"
-            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold'>intelligence artificielle</span>."
+            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle.   "
             ctaText="Démarrer votre projet"
             ctaHref="/contact"
             secondaryCtaText="Découvrir notre méthode"

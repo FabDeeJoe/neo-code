@@ -2,37 +2,23 @@
 
 Site web moderne pour NeoCode, spécialisé dans la modernisation des outils métiers et la transformation digitale.
 
-## Technologies Utilisées
+## Technologies utilisées
 
 - Next.js 14
 - React
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Shadcn/UI
 
 ## Fonctionnalités
 
 - Design moderne et responsive
-- Animations fluides avec Framer Motion
-- Composants UI réutilisables
-- Support du mode sombre
-- Optimisation des images avec Next.js
+- Animations fluides
+- Optimisation SEO
+- Performance optimisée
+- Accessibilité
 
-## Installation
-
-```bash
-# Cloner le projet
-git clone [URL_DU_REPO]
-
-# Installer les dépendances
-npm install
-
-# Lancer le serveur de développement
-npm run dev
-```
-
-## Structure du Projet
+## Structure du projet
 
 ```
 neo-code-website/
@@ -40,17 +26,36 @@ neo-code-website/
 │   ├── components/
 │   │   ├── ui/
 │   │   └── ...
-│   ├── lib/
-│   ├── processus/
-│   ├── contact/
-│   ├── comment-on-travaille/
 │   ├── notre-approche/
-│   └── page.tsx
+│   ├── notre-methode/
+│   ├── nos-solutions/
+│   └── contact/
 ├── public/
+│   └── images/
 └── ...
 ```
 
-## Scripts Disponibles
+## Installation
+
+1. Cloner le dépôt :
+```bash
+git clone https://github.com/votre-username/neo-code-website.git
+```
+
+2. Installer les dépendances :
+```bash
+cd neo-code-website
+npm install
+```
+
+3. Lancer le serveur de développement :
+```bash
+npm run dev
+```
+
+4. Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+
+## Scripts disponibles
 
 - `npm run dev` : Lance le serveur de développement
 - `npm run build` : Crée une version de production
@@ -59,12 +64,8 @@ neo-code-website/
 
 ## Contribution
 
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
 
-## License
+## Licence
 
 MIT
