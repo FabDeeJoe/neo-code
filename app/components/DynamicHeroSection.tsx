@@ -5,6 +5,7 @@ import { Circle, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
+import Link from 'next/link';
 
 function ElegantShape({
   className,
@@ -145,14 +146,14 @@ interface DynamicHeroSectionProps {
 }
 
 export function DynamicHeroSection({
-  badge = "New Feature",
-  title1 = "Build",
-  title2 = "Something Great",
-  description = "Description goes here",
-  ctaText = "Get Started",
-  ctaHref = "#",
-  secondaryCtaText = "Learn More",
-  secondaryCtaHref = "#",
+  badge,
+  title1,
+  title2,
+  description,
+  ctaText,
+  ctaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
 }: DynamicHeroSectionProps) {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const fadeUpVariants = {
@@ -202,155 +203,49 @@ export function DynamicHeroSection({
   const rotateY = useTransform(mouseX, [0, windowSize.width], [-5, 5]);
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
-      <DynamicGradientBackground />
-      <FloatingParticles />
-
-      <div className="absolute inset-0 overflow-hidden">
-        <ElegantShape
-          delay={0.3}
-          width={600}
-          height={140}
-          rotate={12}
-          gradient="from-indigo-500/[0.15]"
-          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
-        />
-
-        <ElegantShape
-          delay={0.5}
-          width={500}
-          height={120}
-          rotate={-15}
-          gradient="from-rose-500/[0.15]"
-          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
-        />
-
-        <ElegantShape
-          delay={0.4}
-          width={300}
-          height={80}
-          rotate={-8}
-          gradient="from-violet-500/[0.15]"
-          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
-        />
-
-        <ElegantShape
-          delay={0.6}
-          width={200}
-          height={60}
-          rotate={20}
-          gradient="from-amber-500/[0.15]"
-          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
-        />
-
-        <ElegantShape
-          delay={0.7}
-          width={150}
-          height={40}
-          rotate={-25}
-          gradient="from-cyan-500/[0.15]"
-          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <motion.div
-          style={{ rotateX, rotateY, perspective: 1000 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.div
-            custom={0}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground/[0.03] border border-foreground/[0.08] mb-8 md:mb-12"
+    <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
+        <div className="text-center">
+          <div className="mb-8">
+            {badge}
+          </div>
+          <motion.h1 
+            className="text-4xl font-bold tracking-tight text-neo-dark sm:text-6xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Circle className="h-2 w-2 fill-rose-500/80" />
-            <span className="text-sm text-foreground/60 tracking-wide">
-              {badge}
-            </span>
-          </motion.div>
-
-          <motion.div
-            custom={1}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
+            {title1} <br/>{title2}
+          </motion.h1>
+          <motion.p 
+            className="mt-6 text-lg leading-8 text-gray-600"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
-                {title1}
-              </span>
-              <br />
-              <span
-                className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-blue-500"
-                )}
-              >
-                {title2}
-              </span>
-            </h1>
-          </motion.div>
-
-          <motion.div
-            custom={2}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
+            {description}
+          </motion.p>
+          <motion.div 
+            className="mt-10 flex items-center justify-center gap-x-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <p className="text-base sm:text-lg md:text-xl text-foreground/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              {description}
-            </p>
-          </motion.div>
-
-          <motion.div
-            custom={3}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button
-              size="lg"
-              className="group relative overflow-hidden rounded-full px-8 py-2 transition-all duration-300 hover:bg-primary/90"
-              asChild
+            <Link
+              href={ctaHref}
+              className="rounded-md bg-neo-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neo-purple transition-colors duration-200"
             >
-              <a href={ctaHref}>
-                <span className="relative z-10 flex items-center gap-2">
-                  {ctaText}
-                  <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-                <motion.span
-                  className="absolute inset-0 z-0 bg-gradient-to-r from-indigo-500 to-blue-500"
-                  animate={{
-                    background: [
-                      "linear-gradient(to right, rgb(99, 102, 241), rgb(59, 130, 246))",
-                      "linear-gradient(to right, rgb(139, 92, 246), rgb(236, 72, 153))",
-                      "linear-gradient(to right, rgb(59, 130, 246), rgb(16, 185, 129))",
-                      "linear-gradient(to right, rgb(99, 102, 241), rgb(59, 130, 246))",
-                    ],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full px-8 py-2"
-              asChild
+              {ctaText}
+            </Link>
+            <Link
+              href={secondaryCtaHref}
+              className="text-sm font-semibold leading-6 text-neo-dark hover:text-neo-purple transition-colors duration-200"
             >
-              <a href={secondaryCtaHref}>{secondaryCtaText}</a>
-            </Button>
+              {secondaryCtaText} <span aria-hidden="true">→</span>
+            </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80 pointer-events-none" />
     </div>
   );
 } 

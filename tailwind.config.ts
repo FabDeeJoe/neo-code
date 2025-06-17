@@ -21,10 +21,14 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: '#2d5075',
-        secondary: '#7f6fea',
-        dark: '#0d0d0d',
-        light: '#dce7fc',
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -45,6 +49,10 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'neo-blue': '#2d5075',
+        'neo-dark': '#0d0d0d',
+        'neo-purple': '#7f6fea',
+        'neo-light': '#dce7fc',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -66,7 +74,7 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, #2d5075, #7f6fea, #dce7fc)',
+        'neo-gradient': 'linear-gradient(90deg, #00E5FF 0%, #2d5075 50%, #7f6fea 100%)',
       },
     },
   },
