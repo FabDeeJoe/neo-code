@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { Logo } from './ui/logo';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,14 +29,14 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-      hasScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-white'
+      hasScrolled ? 'bg-gradient-to-r from-[#dce7fc] via-[#dce7fc]/95 to-[#dce7fc] backdrop-blur-md shadow-sm' : 'bg-gradient-to-r from-[#dce7fc] via-[#dce7fc]/90 to-[#dce7fc]'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-2xl font-bold text-[#7F6EFA]">
-                NeoCode
+              <Link href="/" className="flex items-center">
+                <Logo width={120} height={36} className="transition-opacity duration-200 hover:opacity-90" />
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

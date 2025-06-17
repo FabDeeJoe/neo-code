@@ -5,7 +5,7 @@ import { Circle, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
-import Link from 'next/link';
+import { Logo } from "./ui/logo";
 
 function ElegantShape({
   className,
@@ -82,13 +82,12 @@ function DynamicGradientBackground() {
       transition={{ duration: 1.5 }}
     >
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500 opacity-20"
+        className="absolute inset-0 bg-gradient-to-r from-[#dce7fc] via-[#dce7fc]/95 to-[#dce7fc]"
         animate={{ 
           background: [
-            "linear-gradient(to right, rgba(99, 102, 241, 0.2), rgba(59, 130, 246, 0.2))",
-            "linear-gradient(to right, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2))",
-            "linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2))",
-            "linear-gradient(to right, rgba(99, 102, 241, 0.2), rgba(59, 130, 246, 0.2))",
+            "linear-gradient(to right, #dce7fc, rgba(220, 231, 252, 0.95), #dce7fc)",
+            "linear-gradient(to right, rgba(220, 231, 252, 0.95), #dce7fc, rgba(220, 231, 252, 0.95))",
+            "linear-gradient(to right, #dce7fc, rgba(220, 231, 252, 0.95), #dce7fc)",
           ]
         }}
         transition={{ 
@@ -97,7 +96,7 @@ function DynamicGradientBackground() {
           ease: "linear" 
         }}
       />
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#dce7fc]/40 to-transparent backdrop-blur-[1px]" />
     </motion.div>
   );
 }
@@ -108,7 +107,7 @@ function FloatingParticles() {
       {Array.from({ length: 20 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-foreground/5 backdrop-blur-sm"
+          className="absolute rounded-full bg-gradient-to-r from-[#2d5075]/5 to-[#7f6fea]/5 backdrop-blur-sm"
           style={{
             width: Math.random() * 20 + 5,
             height: Math.random() * 20 + 5,
@@ -146,14 +145,14 @@ interface DynamicHeroSectionProps {
 }
 
 export function DynamicHeroSection({
-  badge,
-  title1,
-  title2,
-  description,
-  ctaText,
-  ctaHref,
-  secondaryCtaText,
-  secondaryCtaHref,
+  badge = "New Feature",
+  title1 = "Build",
+  title2 = "Something Great",
+  description = "Description goes here",
+  ctaText = "Get Started",
+  ctaHref = "#",
+  secondaryCtaText = "Learn More",
+  secondaryCtaHref = "#",
 }: DynamicHeroSectionProps) {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const fadeUpVariants = {
@@ -203,49 +202,106 @@ export function DynamicHeroSection({
   const rotateY = useTransform(mouseX, [0, windowSize.width], [-5, 5]);
 
   return (
-    <div className="relative isolate px-6 pt-14 lg:px-8">
-      <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
-        <div className="text-center">
-          <div className="mb-8">
-            {badge}
-          </div>
-          <motion.h1 
-            className="text-4xl font-bold tracking-tight text-neo-dark sm:text-6xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#dce7fc] via-[#dce7fc]/95 to-[#dce7fc]">
+      <DynamicGradientBackground />
+      <FloatingParticles />
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center space-y-10">
+          <motion.div
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            className="flex flex-col items-center space-y-6"
           >
-            {title1} <br/>{title2}
-          </motion.h1>
-          <motion.p 
-            className="mt-6 text-lg leading-8 text-gray-600"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-[#dce7fc] via-[#dce7fc]/95 to-[#dce7fc]">
+              <Logo width={250} height={75} className="transition-opacity duration-200" />
+            </div>
+            <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-[#dce7fc]/80 backdrop-blur-sm border border-[#dce7fc]/20 shadow-[0_2px_8px_0_rgba(0,0,0,0.05)]">
+              {badge}
+            </div>
+          </motion.div>
+
+          <motion.div
+            custom={1}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
           >
-            {description}
-          </motion.p>
-          <motion.div 
-            className="mt-10 flex items-center justify-center gap-x-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
+                {title1}
+              </span>
+              <br />
+              <span
+                className={cn(
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-blue-500"
+                )}
+              >
+                {title2}
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.div
+            custom={2}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <Link
-              href={ctaHref}
-              className="rounded-md bg-neo-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neo-purple transition-colors duration-200"
+            <p className="text-base sm:text-lg md:text-xl text-foreground/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+              {description}
+            </p>
+          </motion.div>
+
+          <motion.div
+            custom={3}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <Button
+              size="lg"
+              className="group relative overflow-hidden rounded-full px-8 py-2 transition-all duration-300 hover:bg-primary/90"
+              asChild
             >
-              {ctaText}
-            </Link>
-            <Link
-              href={secondaryCtaHref}
-              className="text-sm font-semibold leading-6 text-neo-dark hover:text-neo-purple transition-colors duration-200"
+              <a href={ctaHref}>
+                <span className="relative z-10 flex items-center gap-2">
+                  {ctaText}
+                  <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <motion.span
+                  className="absolute inset-0 z-0 bg-gradient-to-r from-indigo-500 to-blue-500"
+                  animate={{
+                    background: [
+                      "linear-gradient(to right, rgb(99, 102, 241), rgb(59, 130, 246))",
+                      "linear-gradient(to right, rgb(139, 92, 246), rgb(236, 72, 153))",
+                      "linear-gradient(to right, rgb(59, 130, 246), rgb(16, 185, 129))",
+                      "linear-gradient(to right, rgb(99, 102, 241), rgb(59, 130, 246))",
+                    ],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 py-2"
+              asChild
             >
-              {secondaryCtaText} <span aria-hidden="true">→</span>
-            </Link>
+              <a href={secondaryCtaHref}>{secondaryCtaText}</a>
+            </Button>
           </motion.div>
         </div>
       </div>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80 pointer-events-none" />
     </div>
   );
 } 
