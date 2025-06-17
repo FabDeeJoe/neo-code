@@ -5,6 +5,8 @@ import { Feature } from './components/ui/feature';
 import { Users, GitBranch, Brain, TrendingUp, Search, Code, Rocket, RefreshCcw, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { AIGradientText } from './components/ui/ai-gradient-text';
+import Image from 'next/image';
 
 export default function Home() {
   const fadeInUp = {
@@ -15,14 +17,19 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden">
-      {/* Hero Section - Fond dégradé bleu clair */}
-      <section className="relative bg-gradient-to-b from-blue-50 to-white">
+      {/* Logo et Navigation */}
+      <div className="absolute top-4 left-4 z-50">
+        <Image src="/images/logo.svg" alt="Neo Code Logo" width={150} height={50} />
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-b from-light to-white">
         <motion.div {...fadeInUp}>
           <DynamicHeroSection
-            badge={<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">Prototypes livrés en 1 semaine grâce à l'IA</span>}
+            badge={<span>Prototypes livrés en 1 semaine grâce à l'<AIGradientText>IA</AIGradientText></span>}
             title1="Modernisez"
             title2="Vos Outils en 7 Jours"
-            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle.   "
+            description="Transformez vos outils métiers obsolètes en applications modernes et intuitives en combinant expertise humaine et intelligence artificielle."
             ctaText="Démarrer votre projet"
             ctaHref="/contact"
             secondaryCtaText="Découvrir notre méthode"
@@ -31,8 +38,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Service Excel/VBA - Fond blanc avec motif subtil */}
-      <section className="relative bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+      {/* Service Excel/VBA */}
+      <section className="relative bg-white bg-[radial-gradient(#dce7fc_1px,transparent_1px)] [background-size:16px_16px]">
         <motion.div 
           initial="initial"
           whileInView="animate"
@@ -59,7 +66,7 @@ export default function Home() {
               }
             ]}
             imageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-            imageAlt="Transformation d'un fichier Excel en application web moderne de gestion d'inventaire"
+            imageAlt="Transformation d'un fichier Excel en application web moderne"
           />
         </motion.div>
       </section>
@@ -97,8 +104,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Notre Approche Section - Fond avec motif en pointillés */}
-      <section className="relative bg-gray-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px]">
+      {/* Notre Approche Section */}
+      <section className="relative bg-gradient-to-br from-primary/5 via-white to-secondary/5">
         <motion.div 
           initial="initial"
           whileInView="animate"
@@ -107,9 +114,9 @@ export default function Home() {
           className="container mx-auto py-20 lg:py-32"
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">Notre Approche Unique</h2>
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-dark">Notre Approche Unique</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Une méthodologie qui combine expertise humaine et <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">intelligence artificielle</span> pour des résultats exceptionnels.
+              Une méthodologie qui combine expertise humaine et <AIGradientText>intelligence artificielle</AIGradientText> pour des résultats exceptionnels.
             </p>
           </div>
           
@@ -121,13 +128,13 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <div className="mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">L'Humain au Centre</h3>
+                <h3 className="text-xl font-semibold mb-2 text-dark">L'Humain au Centre</h3>
               </div>
               <p className="text-gray-600">
-                Vos besoins et votre expertise métier guident chaque décision. L'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span> est un outil, vous gardez le contrôle.
+                Vos besoins et votre expertise métier guident chaque décision. L'<AIGradientText>IA</AIGradientText> est un outil, vous gardez le contrôle.
               </p>
             </motion.div>
 
@@ -138,13 +145,13 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <div className="mb-6">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <GitBranch className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                  <GitBranch className="w-6 h-6 text-secondary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Itération Rapide</h3>
+                <h3 className="text-xl font-semibold mb-2 text-dark">Itération Rapide</h3>
               </div>
               <p className="text-gray-600">
-                Prototype en 1 semaine grâce à l'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span>, puis affinage continu avec votre retour d'expérience.
+                Prototype en 1 semaine grâce à l'<AIGradientText>IA</AIGradientText>, puis affinage continu avec votre retour d'expérience.
               </p>
             </motion.div>
 
@@ -155,13 +162,13 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <div className="mb-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 bg-light rounded-lg flex items-center justify-center mb-4">
+                  <Brain className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2"><span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IA</span> Supervisée</h3>
+                <h3 className="text-xl font-semibold mb-2"><AIGradientText>IA</AIGradientText> Supervisée</h3>
               </div>
               <p className="text-gray-600">
-                L'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IA</span> accélère le développement, l'expertise humaine garantit la qualité et la pertinence.
+                L'<AIGradientText>IA</AIGradientText> accélère le développement, l'expertise humaine garantit la qualité et la pertinence.
               </p>
             </motion.div>
 
@@ -172,13 +179,13 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <div className="mb-6">
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6 text-orange-600" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Amélioration Continue</h3>
+                <h3 className="text-xl font-semibold mb-2 text-dark">Amélioration Continue</h3>
               </div>
               <p className="text-gray-600">
-                Vos outils évoluent en permanence grâce aux retours utilisateurs et aux avancées de l'<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">IA</span>.
+                Vos outils évoluent en permanence grâce aux retours utilisateurs et aux avancées de l'<AIGradientText>IA</AIGradientText>.
               </p>
             </motion.div>
           </div>
